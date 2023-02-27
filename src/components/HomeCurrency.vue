@@ -3,20 +3,20 @@
     <div class="card orange darken-3 bill-card">
       <div class="card-content white-text">
         <div class="card-header">
-          <span class="card-title">Курс валют</span>
+          <span class="card-title">{{'CurrencyAmountTitle'|localize}}</span>
         </div>
         <table>
           <thead>
             <tr>
-              <th>Валюта</th>
-              <th>Курс</th>
+              <th>{{'Currency'|localize}}</th>
+              <th>{{'CurrencyType'|localize}}</th>
             </tr>
           </thead>
 
           <tbody>
             <tr v-for="cur in currencies" :key="cur">
-              <td>{{ cur }}</td>
-              <td>{{ rates[cur].toFixed(5) }}</td>
+              <td>{{cur}}</td>
+              <td>{{rates[cur].toFixed(5)}}</td>
             </tr>
           </tbody>
         </table>
@@ -27,10 +27,10 @@
 
 <script>
 export default {
-  props: ["rates"],
+  props: ['rates'],
   data: () => ({
-    currencies: ["USD", "EUR", "CZK"],
-  }),
-};
+    currencies: ['USD', 'EUR', 'CZK']
+  })
+}
 </script>
 

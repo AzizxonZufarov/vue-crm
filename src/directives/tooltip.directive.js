@@ -1,12 +1,16 @@
-export default {
-    bind(el, { value }) {
-        M.Tooltip.init(el, { html: value })
-    },
-    unbind(el) {
-        const tooltip = M.Tooltip.getInstance(el)
+import localize from '@/filters/localize.filter'
 
-        if (tooltip && tooltip.destroy) {
-            tooltip.destroy()
-        }
+export default {
+  bind(el, { value, modifiers }) {
+    M.Tooltip.init(el, {
+      html: modifiers.noloc ? value : localize(value)
+    })
+  },
+  unbind(el) {
+    const tooltip = M.Tooltip.getInstance(el)
+
+    if (tooltip && tooltip.destroy) {
+      tooltip.destroy()
     }
+  }
 }
